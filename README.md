@@ -1,6 +1,6 @@
 # AccountsManager
 
-#### This C++ app is based on [ConsoleAccountManager](https://github.com/music-soul1-1/ConsoleAccountManager). Now it has graphic UI (using [Qt](https://www.qt.io/)).
+#### This C++ app is based on [ConsoleAccountManager](https://github.com/music-soul1-1/ConsoleAccountManager). Now it has graphic UI (using [Qt v.6.4.2](https://www.qt.io/)).
 It allows you to store logins and passwords for different services.
 
 Data files are stored in the app's folder.
