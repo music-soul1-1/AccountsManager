@@ -1,4 +1,5 @@
 // TODO: separate the app into 2 windows
+// TODO: add white theme
 
 #include "LogInManager.h"
 
@@ -9,12 +10,12 @@ LogInManager::LogInManager(QWidget *parent)
 
 	// Set application info
 	QCoreApplication::setApplicationName("Account Manager");
-	QCoreApplication::setApplicationVersion("0.0.1-beta");
+	QCoreApplication::setApplicationVersion("0.0.2-beta");
 	QCoreApplication::setOrganizationName("music-soul1-1");
 	QCoreApplication::setOrganizationDomain("https://github.com/music-soul1-1");
 
 	// hiding all unnecessary ui elements
-	ui.addUserConfirm->hide();
+	ui.addUserConfirmButton->hide();
 	ui.addAccountConfirmButton->hide();
 	ui.addNewAccountButton->hide();
 	ui.goBackButton->hide();
@@ -131,6 +132,7 @@ void LogInManager::on_loginButton_clicked()
 
 	if (LogInManager::login() && currentPassword != "" && currentPassword != " ")
 	{
+		logInAttempts = 0;
 		printQText("Successfully logged in. Choose action:");
 
 		// hiding all unnecessary ui elements
@@ -142,8 +144,20 @@ void LogInManager::on_loginButton_clicked()
 	else
 	{
 		printQText("Username or password isn't correct");
-	}
+		if (logInAttempts <= 2)
+		{
+			logInAttempts++;
+		}
+		else
+		{
+			QMessageBox* attempsWarning = new QMessageBox(this);
 
+			QString info = "You have exceeded the maximum number of login attempts.";
+			QMessageBox::warning(nullptr, "Attempts excess", info);
+			
+			on_exitButton_clicked();
+		}
+	}
 }
 
 void LogInManager::on_addUserButton_clicked()
@@ -152,19 +166,19 @@ void LogInManager::on_addUserButton_clicked()
 	ui.addUserButton->hide();
 	ui.infoButton->hide();
 
-	ui.addUserConfirm->show();
+	ui.addUserConfirmButton->show();
 
 	printQText("Enter new user's login and password");
 }
 
-void LogInManager::on_addUserConfirm_clicked()
+void LogInManager::on_addUserConfirmButton_clicked()
 {
 	string newUser = (ui.loginLineEdit->text()).toStdString();
 	string newPassword = (ui.passwordLineEdit->text()).toStdString();
 
 	if (addUser(newUser, newPassword))
 	{
-		ui.addUserConfirm->hide();
+		ui.addUserConfirmButton->hide();
 
 		ui.loginButton->show();
 		ui.addUserButton->show();
@@ -254,7 +268,7 @@ void LogInManager::on_removeCurrentUserButton_clicked()
 	hideAccountsMenu();
 	
 	ui.removeUserButtonBox->show();
-	printQText("Would you like to delete this user?");
+	printQText("Would you like to delete this user? Note that accounts for this user will also be deleted.");
 }
 
 void LogInManager::onAcceptClicked()
@@ -275,7 +289,7 @@ void LogInManager::onRejectClicked()
 void LogInManager::on_goBackButton_clicked()
 {
 	hideAccountsMenu();
-	ui.addUserConfirm->hide();
+	ui.addUserConfirmButton->hide();
 	ui.addAccountConfirmButton->hide();
 	ui.goBackButton->hide();
 	ui.removeAccountConfirmButton->hide();

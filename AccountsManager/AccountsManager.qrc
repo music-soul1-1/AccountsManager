@@ -1,4 +1,5 @@
 <RCC>
-    <qresource prefix="AccountsManager">
+    <qresource prefix="/AccountsManager">
+        <file>Resourses/account-manager-icon.ico</file>
     </qresource>
 </RCC>

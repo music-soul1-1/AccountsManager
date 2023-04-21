@@ -21,6 +21,7 @@ private:
     string currentUser, currentPassword,
 		   usersFile = "users.datafile", accountsFile = "accounts.datafile";
     const char* temporaryFile = "temp.datafile";
+	int logInAttempts = 0;
 
     Ui::LogInManagerClass ui; // ui object
 
@@ -30,7 +31,7 @@ private slots:
     void on_exitButton_clicked();
     void on_addUserButton_clicked();
 	void on_readAccountsButton_clicked();
-    void on_addUserConfirm_clicked();
+    void on_addUserConfirmButton_clicked();
 	void on_addNewAccountButton_clicked();
 	void on_addAccountConfirmButton_clicked();
 	void on_removeAccountButton_clicked();

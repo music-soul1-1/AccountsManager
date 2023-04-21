@@ -29,15 +29,19 @@ Data files are stored in the app's folder.
 
 
 ## Plans for the app:
-* change app style
+* add theme support (for light and dark)
 * separate the app into 2 windows
-* limit log in attempts
 * improve encryption/decryption security
 * find and fix bugs
 * improve code readability
 
 
 ## Changelog:
+
+### v.0.0.2-beta:
+* app style changed
+* app icon added
+* added log in attempts limit
 
 ### v.0.0.1-beta:
 * first version

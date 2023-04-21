@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>624</width>
-    <height>542</height>
+    <width>660</width>
+    <height>556</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -39,21 +39,140 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #161616;
+    color: #fff;
+    border-radius: 5px;
+    align-items: center;
+}
+
+QPushButton {
+    color: #fff;
+    margin: 0 10px;
+    background-color: #333333;
+    border-width: 0;
+}
+
+QPushButton:hover {
+    background-color: #525252;
+}
+
+QPushButton:pressed {
+    background-color: #2b2b2b;
+}
+
+QLineEdit {
+    padding: 2px;
+    margin: 0 30px;
+    border: solid;
+    border-width: 1px;
+    border-bottom: 2px solid #525252;
+    border-color: #525252;
+}
+
+QLineEdit:hover {
+    border-bottom: 2px solid #01798c;
+}
+
+QLineEdit:focus {
+    border-bottom: 2px solid #009cb4;
+}
+
+QLabel {
+    border: none;
+}
+
+QTextEdit {
+    border-radius: 3px;
+    border: solid;
+    border-width: 1px;
+    border-bottom: 2px solid #525252;
+    border-color: #525252;
+}
+
+QTextEdit:focus {
+    border-bottom: 2px solid #009cb4;
+}
+
+QDialogButtonBox QPushButton {
+    padding: 100px 50px;
+}
+
+/* VERTICAL SCROLLBAR */
+QScrollBar:vertical {
+	border: none;
+    background: #002024;
+    width: 12px;
+    padding: 2px;
+	border-radius: 0;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: #01798c;
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{	
+	background-color: #009cb4;
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: #00afca;
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: #002024;
+    height: 0;
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #009cb4;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: #01798c;
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: #002024;
+    height: 0;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #009cb4;
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: #01798c;
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none; /* needed to remove dotted ugly background */
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none; /* needed to remove dotted ugly background */
+}</string>
+  </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
   </property>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>30</x>
      <y>10</y>
      <width>601</width>
-     <height>501</height>
+     <height>511</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="spacing">
      <number>20</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
     </property>
     <property name="bottomMargin">
      <number>0</number>
@@ -91,17 +210,31 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>25</height>
+        <height>30</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>40</height>
+        <height>30</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+        <stylestrategy>PreferDefault</stylestrategy>
+        <kerning>true</kerning>
+       </font>
+      </property>
+      <property name="echoMode">
+       <enum>QLineEdit::Normal</enum>
       </property>
       <property name="placeholderText">
        <string>Enter service name here</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -116,14 +249,22 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>25</height>
+        <height>30</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>40</height>
+        <height>30</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+        <stylestrategy>PreferDefault</stylestrategy>
+        <kerning>true</kerning>
+       </font>
       </property>
       <property name="text">
        <string/>
@@ -141,14 +282,22 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>25</height>
+        <height>30</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>40</height>
+        <height>30</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+        <stylestrategy>PreferDefault</stylestrategy>
+        <kerning>true</kerning>
+       </font>
       </property>
       <property name="text">
        <string/>
@@ -172,13 +321,13 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>100</height>
+        <height>40</height>
        </size>
       </property>
       <property name="font">
@@ -188,6 +337,9 @@
         <stylestrategy>PreferAntialias</stylestrategy>
         <kerning>true</kerning>
        </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
        <string>Log in</string>
@@ -205,13 +357,13 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>100</height>
+        <height>40</height>
        </size>
       </property>
       <property name="font">
@@ -222,13 +374,16 @@
         <kerning>true</kerning>
        </font>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
       <property name="text">
        <string>Add new user</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="addUserConfirm">
+     <widget class="QPushButton" name="addUserConfirmButton">
       <property name="enabled">
        <bool>true</bool>
       </property>
@@ -241,13 +396,13 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>100</height>
+        <height>40</height>
        </size>
       </property>
       <property name="font">
@@ -257,6 +412,9 @@
         <stylestrategy>PreferAntialias</stylestrategy>
         <kerning>true</kerning>
        </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
        <string>Add</string>
@@ -295,6 +453,14 @@
         <height>200</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+        <stylestrategy>PreferDefault</stylestrategy>
+        <kerning>true</kerning>
+       </font>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -317,13 +483,13 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>100</height>
+        <height>40</height>
        </size>
       </property>
       <property name="font">
@@ -333,6 +499,9 @@
         <stylestrategy>PreferAntialias</stylestrategy>
         <kerning>true</kerning>
        </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
        <string>Read accounts</string>
@@ -350,13 +519,13 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>100</height>
+        <height>40</height>
        </size>
       </property>
       <property name="font">
@@ -366,6 +535,9 @@
         <stylestrategy>PreferAntialias</stylestrategy>
         <kerning>true</kerning>
        </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
        <string>Add new account</string>
@@ -383,13 +555,13 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>100</height>
+        <height>40</height>
        </size>
       </property>
       <property name="font">
@@ -399,6 +571,9 @@
         <stylestrategy>PreferAntialias</stylestrategy>
         <kerning>true</kerning>
        </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
        <string>Add account</string>
@@ -416,13 +591,13 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>100</height>
+        <height>40</height>
        </size>
       </property>
       <property name="font">
@@ -432,6 +607,9 @@
         <stylestrategy>PreferAntialias</stylestrategy>
         <kerning>true</kerning>
        </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
        <string>Remove account</string>
@@ -449,13 +627,13 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>100</height>
+        <height>40</height>
        </size>
       </property>
       <property name="font">
@@ -465,6 +643,9 @@
         <stylestrategy>PreferAntialias</stylestrategy>
         <kerning>true</kerning>
        </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
        <string>Remove this account</string>
@@ -482,13 +663,13 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>100</height>
+        <height>40</height>
        </size>
       </property>
       <property name="font">
@@ -499,6 +680,9 @@
         <kerning>true</kerning>
        </font>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
       <property name="text">
        <string>Remove current user</string>
       </property>
@@ -506,6 +690,9 @@
     </item>
     <item>
      <widget class="QDialogButtonBox" name="removeUserButtonBox">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -515,13 +702,13 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>100</height>
+        <height>40</height>
        </size>
       </property>
       <property name="sizeIncrement">
@@ -537,6 +724,9 @@
         <stylestrategy>PreferAntialias</stylestrategy>
         <kerning>true</kerning>
        </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="standardButtons">
        <set>QDialogButtonBox::No|QDialogButtonBox::Yes</set>
@@ -557,13 +747,13 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>100</height>
+        <height>40</height>
        </size>
       </property>
       <property name="font">
@@ -573,6 +763,9 @@
         <stylestrategy>PreferAntialias</stylestrategy>
         <kerning>true</kerning>
        </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
        <string>Go back</string>
@@ -590,13 +783,13 @@
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>30</height>
+        <height>35</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>100</height>
+        <height>40</height>
        </size>
       </property>
       <property name="font">
@@ -607,6 +800,9 @@
         <kerning>true</kerning>
        </font>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
       <property name="text">
        <string>Exit</string>
       </property>
@@ -615,16 +811,25 @@
     <item alignment="Qt::AlignHCenter">
      <widget class="QPushButton" name="infoButton">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>150</width>
+        <height>35</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
-        <width>16777215</width>
-        <height>30</height>
+        <width>150</width>
+        <height>40</height>
        </size>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
       </property>
       <property name="text">
        <string>See app's info</string>
@@ -702,9 +907,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>addUserConfirm</sender>
+   <sender>addUserConfirmButton</sender>
    <signal>clicked(bool)</signal>
-   <receiver>addUserConfirm</receiver>
+   <receiver>addUserConfirmButton</receiver>
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
