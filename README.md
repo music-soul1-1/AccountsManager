@@ -24,8 +24,9 @@ Data files are stored in the app's folder.
 
 ## Screenshots:
 
-![image](https://user-images.githubusercontent.com/72669184/233447106-4d12c29d-5e9e-4bf7-ae45-5766fa04d210.png)
-![image](https://user-images.githubusercontent.com/72669184/233447398-badcf017-7901-4bbe-aca6-06f1c3f6348b.png)
+![screenshot_1](https://user-images.githubusercontent.com/72669184/233647937-b74f9540-de6b-4c2b-8d0d-0c9d7934f44e.png)
+![screenshot_2](https://user-images.githubusercontent.com/72669184/233647956-3914e85f-a19f-4249-bd3b-96e3de366a86.png)
+![screenshot_3](https://user-images.githubusercontent.com/72669184/233647968-cdb6046c-534b-4839-9053-1ab5cdefba5b.png)
 
 
 ## Plans for the app:
