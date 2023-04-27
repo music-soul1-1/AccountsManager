@@ -1,10 +1,10 @@
-#include "LogInManager.h"
+#include "AccountsManager.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    LogInManager window;
+    AccountsManager window;
 
     window.show();
     return app.exec();

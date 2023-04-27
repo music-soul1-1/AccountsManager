@@ -2,109 +2,204 @@
 <ui version="4.0">
  <class>AccountsManagerClass</class>
  <widget class="QWidget" name="AccountsManagerClass">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>677</width>
-    <height>520</height>
+    <width>666</width>
+    <height>593</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>AccountsManager</string>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>9</x>
-     <y>9</y>
-     <width>661</width>
-     <height>461</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <property name="spacing">
-     <number>30</number>
-    </property>
-    <property name="bottomMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Choose action:</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="readAccountsButton">
-      <property name="text">
-       <string>Read Accounts</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QTextEdit" name="textEdit">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Sunken</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="goBackButton">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="text">
-       <string>Go back</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+    <bold>false</bold>
+    <stylestrategy>PreferAntialias</stylestrategy>
+    <kerning>true</kerning>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Accounts Manager</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #161616;
+    color: #fff;
+    border-radius: 5px;
+    align-items: center;
+	justify-content: center;
+}
+
+QPushButton {
+    color: #fff;
+    margin: 5px 20px;
+    background-color: #333333;
+    border-width: 0;
+	min-height: 45px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #525252;
+}
+
+QPushButton:pressed {
+    background-color: #2b2b2b;
+}
+
+QLineEdit {
+    padding: 5px;
+    margin: 5px 30px;
+    border: solid;
+    border-width: 1px;
+    border-bottom: 2px solid #525252;
+    border-color: #525252;
+	font-size: 12px;
+}
+
+QLineEdit:hover {
+    border-bottom: 2px solid #01798c;
+}
+
+QLineEdit:focus {
+    border-bottom: 2px solid #009cb4;
+}
+
+QLabel {
+    border: none;
+	padding-left: 35px;
+	margin: 10px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+QTextEdit {
+	min-height: 200px;
+	margin: 10px 20px;
+    border-radius: 3px;
+    border: solid;
+    border-width: 1px;
+    border-bottom: 2px solid #525252;
+    border-color: #525252;
+	font-size: 12px;
+}
+
+QTextEdit:focus {
+    border-bottom: 2px solid #009cb4;
+}
+
+QDialogButtonBox QPushButton {
+    padding: 18px 50px;
+	margin: 30px;
+}
+
+/* VERTICAL SCROLLBAR */
+QScrollBar:vertical {
+	border: none;
+    background: #002024;
+    width: 12px;
+    padding: 2px;
+	border-radius: 0;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: #01798c;
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{	
+	background-color: #009cb4;
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: #00afca;
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: #002024;
+    height: 0;
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #009cb4;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: #01798c;
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: #002024;
+    height: 0;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #009cb4;
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: #01798c;
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none; /* needed to remove dotted ugly background */
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none; /* needed to remove dotted ugly background */
+}</string>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>547</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="AccountsManager.qrc"/>
- </resources>
- <connections>
-  <connection>
-   <sender>goBackButton</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>goBackButton</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>424</x>
-     <y>435</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>435</x>
-     <y>463</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>readAccountsButton</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>readAccountsButton</receiver>
-   <slot>setChecked(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>383</x>
-     <y>59</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>458</x>
-     <y>59</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <resources/>
+ <connections/>
 </ui>

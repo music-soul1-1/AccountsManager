@@ -31,13 +31,19 @@ Data files are stored in the app's folder.
 
 ## Plans for the app:
 * add theme support (for light and dark)
-* separate the app into 2 windows
 * improve encryption/decryption security
 * find and fix bugs
 * improve code readability
 
 
 ## Changelog:
+
+### v.0.0.3-beta:
+* all "back-end" functions were moved to separate class ("AppManager")
+* LogInManager class was renamed to AccountsManager
+* UI was rewritten. Now .ui file doesn't have almost any elements. Creating and destroying ui elements has been moved to AccountsManager class.
+* UI is now responsive to the window size changes.
+
 
 ### v.0.0.2-beta:
 * app style changed
