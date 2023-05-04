@@ -105,9 +105,24 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resourses\account-manager-icon.ico" />
+    <Image Include="Resourses\down-arrow.png" />
+    <Image Include="Resourses\down-arrow2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
+    <None Include="styles\themes\dark.qss" />
+    <None Include="styles\themes\darkColored.qss">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="styles\themes\white.qss" />
+    <None Include="styles\themes\whiteColored.qss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Resourses\fonts\Inter-Bold.ttf" />
+    <Font Include="Resourses\fonts\Inter-Light.ttf" />
+    <Font Include="Resourses\fonts\Inter-Medium.ttf" />
+    <Font Include="Resourses\fonts\Inter-Regular.ttf" />
+    <Font Include="Resourses\fonts\Inter-Thin.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

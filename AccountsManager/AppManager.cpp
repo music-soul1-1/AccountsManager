@@ -114,9 +114,9 @@ bool AppManager::checkForUserName(string fileName, string inputParam)
 // adds user
 bool AppManager::addUser(string newUser, string newPassword)
 {
-	if (checkForUserName(usersFile, newUser))
+	if (checkForUserName(usersFile, newUser) || newUser == "" || newUser == " ")
 	{
-		//LogInManager::printQText("This user already exists.");
+		// user already exists or is not specified
 		return false;
 	}
 	else
@@ -124,8 +124,6 @@ bool AppManager::addUser(string newUser, string newPassword)
 		// putting username and password into appropriate files
 		addLine(usersFile, newUser, newUser, '1');
 		addLine(usersFile, newPassword, newUser);
-
-		//LogInManager::printQText("User added successfully :)");
 
 		return true;
 	}

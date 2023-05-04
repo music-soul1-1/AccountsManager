@@ -4,13 +4,17 @@
 #include <QtWidgets/QWidget>
 #include <QFrame>
 #include <QPushButton>
+#include <QInputDialog>
 #include <QDialogButtonBox>
 #include <QLabel>
 #include <QTextEdit>
 #include <QLineEdit>
+#include <QFile>
+#include <QDir>
 #include <QCoreApplication>
 #include <QDesktopServices>
 #include <QUrl>
+#include <QSettings>
 
 using namespace std;
 
@@ -20,12 +24,13 @@ class AccountsManager : public QWidget
 
 private:
 	Ui::AccountsManagerClass ui; // ui object
+	AppManager app;
 
 #pragma region +------UI elements--------+
 
 	QLabel * label{};
 
-	QPushButton* loginButton{}, * addUserButton{}, * addUserConfirmButton{}, * exitButton{}, * infoButton{},
+	QPushButton* loginButton{}, * addUserButton{}, * addUserConfirmButton{}, * exitButton{}, * infoButton{}, * themeButton{},
 		* readAccountsButton{}, * addAccountButton{}, * addAccountConfirmButton{}, * removeAccountButton{},
 		* removeAccountConfirmButton{}, * removeCurrentUserButton{}, * goToLoginMenuButton{}, * goToAccountsMenuButton{};
 
@@ -39,6 +44,10 @@ private:
 
 #pragma region +---------Ui-modifying functions-----------+
 
+	// Loads specified theme
+	void loadTheme(QString fileName);
+	// Gets and loads the theme that's saved in the settings
+	void getTheme();
 	void addButton(QPushButton*& button, QString label, int position = -1);
 	void addLabel(QLabel*& label, QString placeholder, int position = -1);
 	void addLineEdit(QLineEdit*& lineEdit, QString placeholder, int position = -1);
@@ -63,10 +72,13 @@ private:
 
 private slots:
 	void on_loginButton_clicked();
-	void on_exitButton_clicked();
 	void on_addUserButton_clicked();
-	void on_readAccountsButton_clicked();
 	void on_addUserConfirmButton_clicked();
+	void on_exitButton_clicked();
+	void on_infoButton_clicked();
+	void on_themeButton_clicked();
+
+	void on_readAccountsButton_clicked();
 	void on_addNewAccountButton_clicked();
 	void on_addAccountConfirmButton_clicked();
 	void on_removeAccountButton_clicked();
@@ -75,7 +87,7 @@ private slots:
 	void onAcceptClicked();
 	void on_goToLoginMenuButton_clicked();
 	void on_goToAccountsMenuButton_clicked();
-	void on_infoButton_clicked();
+	
 
 #pragma endregion
 

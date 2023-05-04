@@ -21,6 +21,15 @@
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
     </Filter>
+    <Filter Include="Resource Files\fonts">
+      <UniqueIdentifier>{4e4d7913-b875-4240-b4fd-cd3de8c08278}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\icons">
+      <UniqueIdentifier>{e08ddf3c-bf57-4316-b1a3-44cefc2d5906}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\themes">
+      <UniqueIdentifier>{87cc26aa-7e80-4d72-aad5-3469d7afb6fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="AccountsManager.qrc">
@@ -57,16 +66,51 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="icon.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="Resourses\account-manager-icon.ico">
-      <Filter>Resource Files</Filter>
+      <Filter>Resource Files\icons</Filter>
+    </Image>
+    <Image Include="Resourses\down-arrow.png">
+      <Filter>Resource Files\icons</Filter>
+    </Image>
+    <Image Include="Resourses\down-arrow2.png">
+      <Filter>Resource Files\icons</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
+    <None Include="styles\themes\whiteColored.qss">
+      <Filter>Resource Files\themes</Filter>
+    </None>
+    <None Include="styles\themes\dark.qss">
+      <Filter>Resource Files\themes</Filter>
+    </None>
+    <None Include="styles\themes\darkColored.qss">
+      <Filter>Resource Files\themes</Filter>
+    </None>
+    <None Include="styles\themes\white.qss">
+      <Filter>Resource Files\themes</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Resourses\fonts\Inter-Thin.ttf">
+      <Filter>Resource Files\fonts</Filter>
+    </Font>
+    <Font Include="Resourses\fonts\Inter-Bold.ttf">
+      <Filter>Resource Files\fonts</Filter>
+    </Font>
+    <Font Include="Resourses\fonts\Inter-Light.ttf">
+      <Filter>Resource Files\fonts</Filter>
+    </Font>
+    <Font Include="Resourses\fonts\Inter-Medium.ttf">
+      <Filter>Resource Files\fonts</Filter>
+    </Font>
+    <Font Include="Resourses\fonts\Inter-Regular.ttf">
+      <Filter>Resource Files\fonts</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc">
+      <Filter>Resource Files\icons</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

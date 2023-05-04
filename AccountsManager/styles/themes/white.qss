@@ -1,0 +1,174 @@
+QWidget {
+	background-color: #F5F5F5;
+	color: #484848;
+	border-radius: 10px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+
+	font-family: "Inter";
+}
+
+QPushButton {
+	color: #484848;
+	margin: 10px 20px 5px 20px;
+	background-color: #E3E3E3;
+	border-width: 0;
+	min-height: 45px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+QPushButton:hover {
+	background-color: #D4D4D4;
+}
+
+QPushButton:pressed {
+	background-color: #B9B9B9;
+}
+
+QPushButton#infoButton, QPushButton#themeButton {
+	margin: 0 200px;
+}
+
+
+QLineEdit {
+	padding: 7px;
+	margin: 8px 30px;
+	border: solid;
+	border-width: 1px;
+	border-bottom: 2px solid #CCCCCC;
+	border-color: #CCCCCC;
+	font-size: 12px;
+	background-color: #E3E3E3;
+}
+
+QLineEdit:hover {
+	border-bottom: 2px solid #0067B2;
+}
+
+QLineEdit:focus, QTextEdit:focus {
+	border-bottom: 2px solid #0081DE;
+	border-color: #0081DE;
+}
+
+QLabel {
+	border: none;
+	padding-left: 35px;
+	margin: 10px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+QTextEdit {
+	min-height: 200px;
+	margin: 10px 20px;
+	border: solid;
+	border-width: 1px;
+	border-bottom: 2px solid #CCCCCC;
+	border-color: #CCCCCC;
+	background-color: #E3E3E3;
+	font-family: "Inter-Bold";
+	font-weight: 500;
+	font-size: 13px;
+}
+
+
+QDialogButtonBox QPushButton {
+	padding: 10px 50px;
+	margin: 30px;
+}
+
+QComboBox {
+	border: 1px solid gray;
+	border-radius: 3px;
+	padding: 1px 18px 1px 3px;
+	min-width: 6em;
+}
+
+
+/* QComboBox gets the "on" state when the popup is open */
+
+QComboBox:on { /* shift the text when the popup opens */
+	padding-top: 2px;
+	padding-left: 2px;
+}
+
+QComboBox::drop-down {
+	subcontrol-origin: padding;
+	subcontrol-position: top right;
+	width: 15px;
+
+	border-left-width: 1px;
+	border-left-color: darkgray;
+	border-left-style: solid; /* just a single line */
+}
+
+QComboBox::down-arrow {
+	image: url(:/AccountsManager/Resourses/down-arrow.png);
+	width: 12px;
+}
+
+QComboBox::down-arrow:on { /* shift the arrow when popup is open */
+	top: 1px;
+	left: 1px;
+}
+
+/* VERTICAL SCROLLBAR */
+QScrollBar:vertical {
+	border: none;
+	background: #002024;
+	width: 12px;
+	padding: 2px;
+	border-radius: 0;
+ }
+
+/*  HANDLE BAR VERTICAL */
+QScrollBar::handle:vertical {	
+	background-color: #01798c;
+	min-height: 30px;
+	border-radius: 7px;
+}
+QScrollBar::handle:vertical:hover{	
+	background-color: #009cb4;
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: #00afca;
+}
+
+/* BTN TOP - SCROLLBAR */
+QScrollBar::sub-line:vertical {
+	border: none;
+	background-color: #002024;
+	height: 0;
+}
+QScrollBar::sub-line:vertical:hover {	
+	background-color: #009cb4;
+}
+QScrollBar::sub-line:vertical:pressed {	
+	background-color: #01798c;
+}
+
+/* BTN BOTTOM - SCROLLBAR */
+QScrollBar::add-line:vertical {
+	border: none;
+	background-color: #002024;
+	height: 0;
+}
+QScrollBar::add-line:vertical:hover {	
+	background-color: #009cb4;
+}
+QScrollBar::add-line:vertical:pressed {	
+	background-color: #01798c;
+}
+
+/* RESET ARROW */
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none; /* needed to remove dotted ugly background */
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none; /* needed to remove dotted ugly background */
+}

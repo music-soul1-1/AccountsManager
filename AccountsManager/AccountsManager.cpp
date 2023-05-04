@@ -1,5 +1,3 @@
-// TODO: add white theme
-
 #include "AccountsManager.h"
 
 AccountsManager::AccountsManager(QWidget* parent)
@@ -9,19 +7,64 @@ AccountsManager::AccountsManager(QWidget* parent)
 
 	// Set application info
 	QCoreApplication::setApplicationName("Account Manager");
-	QCoreApplication::setApplicationVersion("0.0.3-beta");
+	QCoreApplication::setApplicationVersion("0.0.4-beta");
 	QCoreApplication::setOrganizationName("music-soul1-1");
 	QCoreApplication::setOrganizationDomain("https://github.com/music-soul1-1");
 
 	// initial interface
 	addLabel(label, "Enter user login and password");
 	showLogInMenu();
+
+	// loading theme
+	getTheme();
 }
 
 AccountsManager::~AccountsManager()
 {}
 
-AppManager app;
+#pragma region +---------Ui-modifying functions-----------+
+
+// Gets and loads the theme that's saved in the settings
+void AccountsManager::getTheme()
+{
+	QSettings settings(QString("settings/config.ini"), QSettings::IniFormat);
+
+	settings.beginGroup("App theme");
+
+	// getting value from settings
+	QString theme = settings.value("App theme/Theme").toString();
+
+	settings.endGroup();
+
+	if (!theme.isEmpty())
+	{
+		loadTheme("./styles/themes/" + theme);
+	}
+	else
+	{
+		// on first launch
+		loadTheme("./styles/themes/darkColored.qss");
+	}
+}
+
+// Loads specified theme
+void AccountsManager::loadTheme(QString fileName)
+{
+	QFile file(fileName);
+	file.open(QFile::ReadOnly | QFile::Text);
+
+	if (file.isOpen()) {
+		qApp->setStyleSheet(file.readAll());
+	}
+	else
+	{
+		QMessageBox* fileOpenError = new QMessageBox(this);
+
+		QString info = "There was a error opening " + fileName + " file.";
+		QMessageBox::warning(nullptr, "File open error", info);
+	}
+	file.close();
+}
 
 // prints text in label
 void AccountsManager::printQText(QString text)
@@ -34,8 +77,6 @@ void AccountsManager::printText(string text)
 {
 	textEdit->append(QString::fromStdString(text));
 }
-
-#pragma region +---------Ui-modifying functions-----------+
 
 // adds QButton
 void AccountsManager::addButton(QPushButton*& button, QString label, int position) // first parameter here is a reference to the pointer
@@ -153,14 +194,17 @@ void AccountsManager::showLogInMenu()
 	addButton(addUserButton, "Add new user");
 	addButton(exitButton, "Exit");
 	addButton(infoButton, "See app info");
+	infoButton->setObjectName("infoButton");
+	addButton(themeButton, "Select theme");
+	themeButton->setObjectName("themeButton");
 
 	printQText("Enter user login and password");
 
 	QObject::connect(loginButton, SIGNAL(clicked()), this, SLOT(on_loginButton_clicked()));
 	QObject::connect(addUserButton, SIGNAL(clicked()), this, SLOT(on_addUserButton_clicked()));
-	QObject::connect(addUserConfirmButton, SIGNAL(clicked()), this, SLOT(on_addUserConfirmButton_clicked()));
 	QObject::connect(exitButton, SIGNAL(clicked()), this, SLOT(on_exitButton_clicked()));
 	QObject::connect(infoButton, SIGNAL(clicked()), this, SLOT(on_infoButton_clicked()));
+	QObject::connect(themeButton, SIGNAL(clicked()), this, SLOT(on_themeButton_clicked()));
 }
 
 // deletes and sets equal to nullptr all UI elements from Login menu
@@ -178,6 +222,8 @@ void AccountsManager::hideLogInMenu()
 	exitButton = nullptr;
 	if (infoButton) delete infoButton;
 	infoButton = nullptr;
+	if (themeButton) delete themeButton;
+	themeButton = nullptr;
 }
 
 // shows all elements needed for Accounts menu. Also connects the buttons
@@ -235,24 +281,7 @@ void AccountsManager::hideAccountsMenu()
 
 #pragma region +-------------Event handlers--------------+
 
-#pragma region +--------------Log in menu------------------+
-
-void AccountsManager::on_infoButton_clicked()
-{
-	QMessageBox* appInfo = new QMessageBox(this);
-
-	QString info = QString("%1 \nv.%2 \n%3 \n%4 \n\n%5").arg(QCoreApplication::applicationName()).arg(
-		QCoreApplication::applicationVersion()).arg(
-			QCoreApplication::organizationName()).arg(
-				QCoreApplication::organizationDomain()).arg("Visit the app page on GitHub?");
-
-	QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "Application Information", info,
-		QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
-
-	if (reply == QMessageBox::Yes) {
-		QDesktopServices::openUrl(QUrl("https://github.com/music-soul1-1/AccountsManager"));
-	}
-}
+	#pragma region +--------------Log in menu------------------+
 
 void AccountsManager::on_exitButton_clicked()
 {
@@ -299,10 +328,15 @@ void AccountsManager::on_addUserButton_clicked()
 {
 	loginButton->hide();
 	addUserButton->hide();
+	exitButton->hide();
 	infoButton->hide();
+	themeButton->hide();
 
-	addButton(addUserConfirmButton, "Add", 4);
+	addButton(addUserConfirmButton, "Add");
+	addButton(goToLoginMenuButton, "Go back");
+
 	QObject::connect(addUserConfirmButton, SIGNAL(clicked()), this, SLOT(on_addUserConfirmButton_clicked()));
+	QObject::connect(goToLoginMenuButton, SIGNAL(clicked()), this, SLOT(on_goToLoginMenuButton_clicked()));
 
 	printQText("Enter new user's login and password");
 }
@@ -316,23 +350,72 @@ void AccountsManager::on_addUserConfirmButton_clicked()
 	{
 		delete addUserConfirmButton;
 		addUserConfirmButton = nullptr;
+		delete goToLoginMenuButton;
+		goToLoginMenuButton = nullptr;
 
 		loginButton->show();
 		addUserButton->show();
+		exitButton->show();
 		infoButton->show();
-
+		themeButton->show();
 
 		printQText("User added successfully :)");
 	}
 	else
 	{
-		printQText("This user already exists.");
+		printQText("This user already exists or isn't specified.");
 	}
 }
 
-#pragma endregion
+void AccountsManager::on_infoButton_clicked()
+{
+	QMessageBox* appInfo = new QMessageBox(this);
 
-#pragma region +---------------Accounts menu------------------+
+	QString info = QString("%1 \nv.%2 \n%3 \n%4 \n\n%5").arg(QCoreApplication::applicationName()).arg(
+		QCoreApplication::applicationVersion()).arg(
+			QCoreApplication::organizationName()).arg(
+				QCoreApplication::organizationDomain()).arg("Visit the app page on GitHub?");
+
+	QMessageBox::StandardButton reply = QMessageBox::information(nullptr, "Application Information", info,
+		QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
+
+	if (reply == QMessageBox::Yes) {
+		QDesktopServices::openUrl(QUrl("https://github.com/music-soul1-1/AccountsManager"));
+	}
+}
+
+void AccountsManager::on_themeButton_clicked() 
+{
+	// Creating a list of files
+	QDir directory("./styles/themes/");
+	QStringList items = directory.entryList(QStringList() << "*.qss", QDir::Files);
+
+	// Creating a dialog
+	QInputDialog dialog;
+
+	dialog.setOption(QInputDialog::UseListViewForComboBoxItems);
+	dialog.setComboBoxEditable(false);
+
+	// getting selected theme filename from items
+	QString selectedTheme = QInputDialog::getItem(this, "Select theme", "Themes:", items);
+	
+	if (QInputDialog::Accepted) // TODO: fix this (always true)
+	{
+		QSettings settings(QString("settings/config.ini"), QSettings::IniFormat);
+		settings.beginGroup("App theme");
+
+		settings.setValue("App theme/Theme", selectedTheme);
+
+		settings.endGroup();
+		settings.QSettings::sync(); // updating settings
+
+		getTheme(); // loading the theme
+	}
+}
+
+	#pragma endregion
+
+	#pragma region +---------------Accounts menu------------------+
 
 void AccountsManager::on_readAccountsButton_clicked()
 {
@@ -442,10 +525,12 @@ void AccountsManager::on_goToAccountsMenuButton_clicked()
 void AccountsManager::on_goToLoginMenuButton_clicked()
 {
 	hideAccountsMenu();
+	if (addUserConfirmButton) delete addUserConfirmButton;
+	addAccountConfirmButton = nullptr;
 
 	showLogInMenu();
 }
 
-#pragma endregion
+	#pragma endregion
 
 #pragma endregion

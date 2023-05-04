@@ -9,7 +9,7 @@ Data files are stored in the app's folder.
 
 ## Features:
 * account manager
-* GUI
+* GUI with multi-theme support
 * multi-user app
 * account records are only available for authorised users who created the records
 * data files are encrypted
@@ -30,13 +30,22 @@ Data files are stored in the app's folder.
 
 
 ## Plans for the app:
-* add theme support (for light and dark)
+* fix an issue with scroll bar isn't showing(in TextEdit)
+* fix an issue with QInputDialog always loading theme whether user chose to or not
+* change QWidget to QMainWindow
+* rename AccountsManager class to AppUI
 * improve encryption/decryption security
 * find and fix bugs
 * improve code readability
 
 
 ## Changelog:
+
+### v.0.0.4-beta:
+* added theming support. Now the app has 4 themes. User's theme choice is saved to config.ini
+* app font changed to Inter
+* stylesheets are now stored separately from .ui file. That means the users can create their own themes. 
+To use them, copy the .qss file to ./styles/themes/ folder.
 
 ### v.0.0.3-beta:
 * all "back-end" functions were moved to separate class ("AppManager")

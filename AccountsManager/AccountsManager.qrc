@@ -1,5 +1,11 @@
 <RCC>
     <qresource prefix="/AccountsManager">
         <file>Resourses/account-manager-icon.ico</file>
+        <file>Resourses/down-arrow.png</file>
+        <file>Resourses/fonts/Inter-Bold.ttf</file>
+        <file>Resourses/fonts/Inter-Light.ttf</file>
+        <file>Resourses/fonts/Inter-Medium.ttf</file>
+        <file>Resourses/fonts/Inter-Regular.ttf</file>
+        <file>Resourses/fonts/Inter-Thin.ttf</file>
     </qresource>
 </RCC>
