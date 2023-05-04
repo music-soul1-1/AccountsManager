@@ -24,9 +24,14 @@ Data files are stored in the app's folder.
 
 ## Screenshots:
 
-![screenshot_1](https://user-images.githubusercontent.com/72669184/233647937-b74f9540-de6b-4c2b-8d0d-0c9d7934f44e.png)
-![screenshot_2](https://user-images.githubusercontent.com/72669184/233647956-3914e85f-a19f-4249-bd3b-96e3de366a86.png)
-![screenshot_3](https://user-images.githubusercontent.com/72669184/233647968-cdb6046c-534b-4839-9053-1ab5cdefba5b.png)
+#### Dark themes:
+![dark themes](https://user-images.githubusercontent.com/72669184/236248623-105a95f0-2cfe-4a1b-9823-f5cf23520bfc.jpg)
+
+#### Light themes:
+![light themes](https://user-images.githubusercontent.com/72669184/236248714-9375a6c8-ea74-4f8b-bbac-feff073323a3.jpg)
+
+#### When logged in:
+![screenshot when logged in](https://user-images.githubusercontent.com/72669184/236249133-4c60b588-4778-4073-b5e9-3478fdeffd56.png)
 
 
 ## Plans for the app:
@@ -43,7 +48,7 @@ Data files are stored in the app's folder.
 
 ### v.0.0.4-beta:
 * added theming support. Now the app has 4 themes. User's theme choice is saved to config.ini
-* app font changed to Inter
+* app font changed to [Inter](https://fonts.google.com/specimen/Inter?query=inter)
 * stylesheets are now stored separately from .ui file. That means the users can create their own themes. 
 To use them, copy the .qss file to ./styles/themes/ folder.
 
