@@ -106,7 +106,6 @@
   <ItemGroup>
     <Image Include="Resourses\account-manager-icon.ico" />
     <Image Include="Resourses\down-arrow.png" />
-    <Image Include="Resourses\down-arrow2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
